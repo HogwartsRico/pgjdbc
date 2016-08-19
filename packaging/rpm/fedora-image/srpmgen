@@ -55,13 +55,4 @@ for my $source_line (@sources)
     if (defined ($config->{$id})) {
         obtain_source ($id, $config->{$id});
     }
-
-    my $src_basename = basename ($source);
-    if (! -f "$src_basename") {
-        info ("getting sources $source");
-        system ("wget", "$source");
-        if ($? >> 8) {
-            die ("can't wget $source");
-        }
-    }
 }
